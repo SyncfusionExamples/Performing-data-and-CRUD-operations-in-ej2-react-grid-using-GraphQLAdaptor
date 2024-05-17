@@ -34,7 +34,7 @@ Now the Grid will be launched in the browser `http://localhost:xxxx/`.
 
 ## Resources
 
-You can also refer the below resources to know more details about Syncfusion React Scheduler components.
+You can also refer the below resources to know more details about Syncfusion React Grid components.
 * [Demo](https://ej2.syncfusion.com/react/demos/#/material3/grid/over-view)
 * [Documentation](https://ej2.syncfusion.com/react/documentation/grid/getting-started)
 * [GraphQL with Syncfusion DataManager](https://ej2.syncfusion.com/react/documentation/grid/connecting-to-adaptors/graphql-adaptor)

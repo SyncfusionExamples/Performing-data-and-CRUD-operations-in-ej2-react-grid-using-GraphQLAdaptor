@@ -383,13 +383,13 @@ webpackContext.id = "./src sync recursive ^\\.\\/(schema|schema\\/index)\\.(gql|
 /*!*******************!*\
   !*** ./src/db.js ***!
   \*******************/
-/*! exports provided: users, filterData, virtualData, dataSource, employeeData */
+/*! exports provided: users, OrderData, virtualData, dataSource, employeeData */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "users", function() { return users; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "filterData", function() { return filterData; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "OrderData", function() { return OrderData; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "virtualData", function() { return virtualData; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "dataSource", function() { return dataSource; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "employeeData", function() { return employeeData; });
@@ -404,7 +404,7 @@ let users = [{
   email: "jane@gmail.com",
   age: 23
 }];
-let filterData = [{
+let OrderData = [{
   OrderID: 10248,
   CustomerID: 'VINET',
   EmployeeID: 5,
@@ -1862,7 +1862,7 @@ const resolvers = {
     getOrders: (parent, {
       datamanager
     }, context, info) => {
-      var ret = _syncfusion_ej2_data__WEBPACK_IMPORTED_MODULE_1__["DataUtil"].processData(datamanager, _db__WEBPACK_IMPORTED_MODULE_0__["filterData"]);
+      var ret = _syncfusion_ej2_data__WEBPACK_IMPORTED_MODULE_1__["DataUtil"].processData(datamanager, _db__WEBPACK_IMPORTED_MODULE_0__["OrderData"]);
       return ret;
     }
   },
@@ -1871,7 +1871,7 @@ const resolvers = {
       value
     }, context, info) => {
       const newOrder = value;
-      _db__WEBPACK_IMPORTED_MODULE_0__["filterData"].push(newOrder);
+      _db__WEBPACK_IMPORTED_MODULE_0__["OrderData"].push(newOrder);
       return newOrder;
     },
     updateOrder: (parent, {
@@ -1879,7 +1879,7 @@ const resolvers = {
       keyColumn,
       value
     }, context, info) => {
-      let newOrder = _db__WEBPACK_IMPORTED_MODULE_0__["filterData"].find(order => order.OrderID === parseInt(key));
+      let newOrder = _db__WEBPACK_IMPORTED_MODULE_0__["OrderData"].find(order => order.OrderID === parseInt(key));
       newOrder.CustomerID = value.CustomerID;
       newOrder.EmployeeID = value.EmployeeID;
       newOrder.ShipCity = value.ShipCity;
@@ -1891,9 +1891,9 @@ const resolvers = {
       keyColumn,
       value
     }, context, info) => {
-      const orderIndex = _db__WEBPACK_IMPORTED_MODULE_0__["filterData"].findIndex(order => order.OrderID === parseInt(key));
+      const orderIndex = _db__WEBPACK_IMPORTED_MODULE_0__["OrderData"].findIndex(order => order.OrderID === parseInt(key));
       if (orderIndex === -1) throw new Error("Order not found." + value);
-      const deletedOrders = _db__WEBPACK_IMPORTED_MODULE_0__["filterData"].splice(orderIndex, 1);
+      const deletedOrders = _db__WEBPACK_IMPORTED_MODULE_0__["OrderData"].splice(orderIndex, 1);
       return deletedOrders[0];
     }
   }
