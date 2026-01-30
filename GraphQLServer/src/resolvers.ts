@@ -76,7 +76,7 @@ const resolvers = {
          */
 
         function buildNestedPredicate(block : FilterBlock, ignoreCase :boolean) {
-          /* Determine whether this block uses "and" or "or" to merge its child predicates.b*/
+          /* Determine whether this block uses "and" or "or" to merge its child predicates.*/
           const condition = (block.condition || 'and').toLowerCase();
             
           /* Will store the final combined Predicate after processing all nested items. */
@@ -201,10 +201,8 @@ const resolvers = {
      *   consider replacing the item in the array with a new object instead.
      */
 
-    updateProduct: (_parent: unknown, { key, keyColumn = "productId", value }: UpdateProductArgs):ProductDetails => {
-      
+    updateProduct: (_parent: unknown, { key, keyColumn = "productId", value }: UpdateProductArgs):ProductDetails => {  
       /* Locate the product by dynamic key column (coerce to string for robust comparison). */
-      //const product = productDetails.find((p:ProductDetails) => p.productId === key);
       const product = productDetails.find((p:ProductDetails) => String(p[keyColumn]) === String(key));
       if (!product) throw new Error("Product not found");
       
