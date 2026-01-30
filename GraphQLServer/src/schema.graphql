@@ -1,15 +1,8 @@
 #Grid Sort direction
-
 input Sort {
     name: String
     direction: String
 } 
-
-# --- Aggregates ---
-input AggregateInput {
-  field: String!
-  type: String!      # e.g., "sum", "avg", "min", "max", "count"
-}
 
 # --- Syncfusion DataManager payload ---
 input DataManagerInput {
@@ -22,7 +15,6 @@ input DataManagerInput {
   where: String   
   search: String  
   requiresCounts: Boolean
-  aggregates: [AggregateInput!]
   params: String
 }
 
@@ -71,7 +63,6 @@ type Product {
 type ReturnType {
   result: [Product!]!
   count: Int!
-  aggregates: String
 }
 
 type Query {
